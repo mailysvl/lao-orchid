@@ -4,7 +4,8 @@ from django import forms
 class ContactForm(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-sm', 'required': True}))
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'form-control form-control-sm'}))
-    subject = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-sm adult', 'required': True}))
+    subject = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm adult', 'required': True}))
     details = forms.CharField(
         widget=forms.Textarea(attrs={'class': 'form-control md-textarea', 'required': True})
     )

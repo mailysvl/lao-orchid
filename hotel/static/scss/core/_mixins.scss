@@ -105,7 +105,7 @@
 // }
 
 // Make button
-@mixin make-button ($name, $color) {
+@mixin make-button($name, $color) {
   .btn-#{$name} {
     background-color: $color !important;
     color: $white !important;
@@ -122,7 +122,7 @@
       background-color: darken($color, 20%);
     }
     &.dropdown-toggle {
-      background-color: $color!important;
+      background-color: $color !important;
       &:hover,
       &:focus {
         background-color: lighten($color, 5%) !important;
@@ -150,7 +150,7 @@
 }
 
 // Make outline button
-@mixin make-outline-button ($name, $color) {
+@mixin make-outline-button($name, $color) {
   .btn-outline-#{$name} {
     border: 2px solid $color !important;
     background-color: transparent !important;

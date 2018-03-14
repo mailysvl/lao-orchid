@@ -22,7 +22,7 @@ body {
       border-top-right-radius: $border-radius-base;
     }
   }
-  .btn  {
+  .btn {
     .fa {
       color: $white !important;
     }
@@ -131,7 +131,7 @@ body {
       color: map-get($grey, darken-2);
     }
     @each $name, $color in $basic {
-      &.modal-#{$name}  {
+      &.modal-#{$name} {
         .modal-header {
           background-color: $color;
         }
