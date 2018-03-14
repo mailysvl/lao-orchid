@@ -1,0 +1,64 @@
+
+body {
+    padding-top: 150px;
+}
+.main-content {
+    margin: 0 30px 30px 30px;
+}
+
+.main-content p {
+    font-size: 16px;
+
+}
+
+.contact-form {
+    border-color: black;
+}
+
+.contact-icons {
+    text-align: center;
+    margin: auto;
+}
+
+form {
+    padding-top: 30px;
+}
+
+.section-description {
+    text-align: center;
+    margin-top: 30px;
+}
+
+textarea.md-textarea {
+    height: 7rem;
+}
+
+.nav-link {
+    color: saddlebrown;
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+a {
+    color: black;
+}
+
+section {
+    height: 78vh;
+    padding-top: 90px;
+}
+
+.navbar-brand {
+    padding-left: 20px;
+}
+
+
+input{
+       background-color:transparent !important;
+       border:darkgray;
+    }
+
+.content-section {
+    padding-top: 115px;
+    margin-top: -115px;
+}
