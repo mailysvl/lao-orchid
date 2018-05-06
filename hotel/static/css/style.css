@@ -141,7 +141,7 @@ input {
 }
 
 .bottom-left {
-    position: relative;
+    position: absolute;
     bottom: 8px;
     left: 30px;
     width: 85%;
