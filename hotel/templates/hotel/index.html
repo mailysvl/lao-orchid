@@ -15,12 +15,22 @@
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.8.2/combined/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.8.2/combined/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1
+            });
+        });
+    </script>
 </head>
 <body>
 
-<nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light" id="navbar-example2">
+<nav class="navbar fixed-top navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="."><img src="{% static 'images/LOC-logo.png' %}" height="90px"></a>
+        <a class="navbar-brand" href="."><img src="{% static 'images/LOC-logo.png' %}" height="70px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,7 +40,7 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#roomRates">Room Types & Rates</a>
+                <a class="nav-link" href="#roomRates">Rooms & Rates</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#services">Services</a>
@@ -48,10 +58,27 @@
     </div>
 </nav>
 {% block main %}
+    <div style="width: 100%; padding: 0;margin: 0; height: 100%; max-height: 100%">
+        <img src="{% static 'images/entrance.jpg' %}"
+             style="width: 100%;margin:0; padding: 0;display: block"/>
+        <div id="layer" style="background-color: rgba(77, 86, 86, 0.6); position: absolute;top: 105px;left: 0;width: 100%;
+    height: 84%;padding: 0"></div>
+        <div class="welcome">
+            <h2 style="text-align: center"><strong>WELCOME TO LAO ORCHID HOTEL</strong></h2><br>
+            <p style="font-size: 20px">Lao Orchid Hotel is a 3 star hotel conveniently located within the heart of
+                Vientiane Capital. The hotel
+                is designed in a contemporary Lao style with well décor. The hotel is surrounded by many famous
+                restaurants, coffee shops, boutique shops and just 2 minutes walk to the Night Market, which is along
+                the Mekong River. Also, the location is easily accessible to tourist attractions. It is consistently
+                rates among the high in both customer service and guest satisfaction as reviewed by fellow
+                travellers.</p>
+        </div>
+    </div>
 
     <div class="main-content" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
 
-        <!--Carousel Wrapper-->
+
+        {% comment %}       <!--Carousel Wrapper-->
         <div id="carousel-example-1z" class="carousel slide carousel-fade col-xl-7" data-ride="carousel"
              style="margin: auto">
             <!--Indicators-->
@@ -95,42 +122,36 @@
             <!--/.Controls-->
         </div>
         <!--/.Carousel Wrapper-->
+{% endcomment %}
 
-        {% comment %}<div class="mainPitch"
-             style="position:absolute; top:115px; left:500px; width:300px; background: rgba(255,255,255,0.7); color:black">
-            <div class="container" style="width: 100%">
+
+        {% comment %}
+        <div class="mainPitch" style="position:absolute; top:100px; right:100px; width:300px;
+        background: rgba(77, 86, 86,0.6); color:white">
+            <div class="container" style="width: 100%; padding: 20px; margin: auto; ">
                 <div style="text-align:center;">
                     <h3>Booking</h3>
                 </div>
-                <div>
+                <div style="margin: auto; width: 100%">
                     <form role="form" action="{% url 'booking' %}" method="POST">
                         {% csrf_token %}
-                        <div class="row">
+                        <div class="row" style="width: 100%; margin: auto">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Check in
-                                        <input placeholder="DD MM YYYY" class="form-control form-control-sm" type="text"
-                                               onfocus="(this.type='date')">
-                                    </label>
-                                </div>
+                                <label for="datepicker">Check-in</label><input type="text" name="checkin"
+                                                                               id="datepicker">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="width: 100%; margin: auto; padding-top:20px">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Check out
-                                        <input placeholder="DD MM YYYY" class="form-control form-control-sm" type="text"
-                                               onfocus="(this.type='date')">
-                                    </label>
-                                </div>
+                                <label for="datepicker">Check-out</label><input type="text" name="checkout"
+                                                                                id="datepicker">
                             </div>
-
                         </div>
-                        <div class="row">
+                        <div class="row" style="width: 100%; margin: auto; padding-top:20px">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label> Adult
-                                        <select class="form-control form-control-sm">
+                                        <select name="adult" class="form-control form-control-sm">
                                             <option value="" disabled selected>0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -143,10 +164,10 @@
 
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
+                            <div class="col-md-6" style="overflow: auto">
+                                <div class="form-group" style="float: right">
                                     <label> Child
-                                        <select class="form-control form-control-sm">
+                                        <select name="child" class="form-control form-control-sm">
                                             <option value="" disabled selected>0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -166,33 +187,50 @@
                 </div>
             </div>
         </div>
-    </div>{% endcomment %}
 
+{% endcomment %}
 
-        <h3 class="content-section" id="roomRates">Room Types & Rates</h3>
-        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui.
-            Tumblr
-            farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3
-            wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of
-            them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony
-            biodiesel keffiyeh artisan ullamco consequat.
+        <h3 class="content-section" id="roomRates" style="text-align: center; margin: auto">Rooms & Rates</h3>
+        <div class="details" id="room_rates">
+            <div class="row">
+                <div class="col-xl-6 room">
+                    <img src="{% static 'images/Hotel Pic/SUPERIOR TWIN ROOM 2.JPG' %}" width="100%"/>
+                    <div class="bottom-left">
+                        <h4><strong>Superior Twin Room</strong></h4>
+                        <hr>
+                        <h5>$85/night</h5>
+                    </div>
 
-            Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui.
-            Tumblr
-            farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3
-            wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of
-            them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony
-            biodiesel keffiyeh artisan ullamco consequat.
+                </div>
+                <div class="col-xl-6 room">
+                    <img src="{% static 'images/Hotel Pic/0G7A1514.jpg' %}" width="100%"/>
+                    <div class="bottom-left">
+                        <h4><strong>Superior Double Room</strong></h4>
+                        <hr>
+                        <h5>$85/night</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-xl-6 room">
+                    <img src="{% static 'images/Hotel Pic/Deluxe Suite Type.jpg' %}" width="100%"/>
+                    <div class="bottom-left">
+                        <h4><strong>Deluxe Suite Room</strong></h4>
+                        <hr>
+                        <h5>$115/night</h5>
+                    </div>
+                </div>
+                <div class="col-xl-6 room">
+                    <img src="{% static 'images/Hotel Pic/Apartment4.jpg' %}" width="100%"/>
+                    <div class="bottom-left">
+                        <h4><strong>Apartment</strong></h4>
+                        <hr>
+                        <h5>$170/night</h5>
+                    </div>
+                </div>
+            </div>
 
-            Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda.
-            Locavore
-            sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free
-            lo-fi
-            fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby
-            sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray
-            laboris
-            tempor veniam. Anim mollit minim commodo ullamco thundercats.
-        </p>
+        </div>
         <h3 class="content-section" id="services">Services</h3>
         <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat
             mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck,
@@ -290,18 +328,18 @@
 
             </div>
         </section>
-
-
     </div>
+
+
 {% endblock %}
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+{% comment %}<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>{% endcomment %}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>

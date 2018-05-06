@@ -1,6 +1,6 @@
 
 body {
-    padding-top: 150px;
+    padding-top: 105px;
 }
 
 .main-content {
@@ -51,6 +51,7 @@ section {
 
 .navbar-brand {
     padding-left: 20px;
+    background-color: #f8f9f9;
 }
 
 input {
@@ -61,4 +62,92 @@ input {
 .content-section {
     padding-top: 115px;
     margin-top: -115px;
+}
+
+.ui-datepicker {
+    background: #fff;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.ui-datepicker table {
+    width: 200px;
+}
+
+.ui-datepicker table td {
+    text-align: center;
+}
+
+.ui-datepicker a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.ui-datepicker-prev {
+}
+
+.ui-datepicker-next {
+    float: right;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.ui-state-highlight {
+    background-color: saddlebrown;
+    border: 1px solid brown;
+    padding: 5px;
+    border-radius: 25%;
+}
+
+#datepicker {
+    border: 1px solid white;
+]
+}
+
+.welcome {
+    padding: 100px;
+    color: white;
+    width: 100%;
+    position: absolute;
+    animation: floatText 3s ease-in-out forwards;
+}
+
+@-webkit-keyframes floatText {
+    from {
+        top: 00%;
+    }
+
+    to {
+        /* left: auto; */
+        top: 250px;
+    }
+}
+
+.details {
+    width: 70%;
+    margin: 20px auto 20px auto;
+}
+
+.room:hover {
+    opacity: 0.5;
+}
+
+.room:hover .bottom-left {
+    margin-top: -20px;
+}
+
+.bottom-left {
+    position: relative;
+    bottom: 8px;
+    left: 30px;
+    width: 85%;
+    color: white;
+}
+
+hr {
+    background-color: saddlebrown;
 }
