@@ -25,9 +25,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'w7tqmf^wb39(n3yd#trih+8v&y38xg
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lao-orchid.com', 'localhost']
 
 # Application definition
 
@@ -50,6 +50,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+X_FRAME_OPTIONS = 'DENY'
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 ROOT_URLCONF = 'lao_orchid.urls'
 
